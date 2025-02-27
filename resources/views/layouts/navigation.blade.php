@@ -48,8 +48,7 @@
         <div class="flex-1 overflow-y-auto py-6 px-4 scrollbar-hide">
             <div class="space-y-1">
                 
-                <!-- Dashboard Link -->
-                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 rounded-xl transition-all">
+                <x-nav-link href="#" active="request()->routeIs('dashboard')" class="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 rounded-xl transition-all">
                    
                     @if(auth()->user()->role === 'admin')
                         <a class="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 rounded-xl transition-all group sidebar-active" href="{{ route('admin.dashboard') }}" ...>
@@ -122,7 +121,7 @@
                     </x-nav-link>
                 @else
                     <!-- No colocation yet -->
-                    <x-nav-link :href="route('formColocation')" 
+                    <x-nav-link href="#" 
                                :active="request()->routeIs('formColocation')" 
                                class="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 rounded-xl transition-all">
                         <svg class="w-5 h-5 mr-3 text-[#8b5cf6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

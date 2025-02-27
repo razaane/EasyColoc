@@ -64,4 +64,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/colocations/{colocation}/members/{user}', [ColocationController::class, 'removeMember'])->name('colocations.removeMember');
 });
 
+Route::get('/invitations/accept/{token}', [ColocationController::class, 'acceptInvitation'])
+    ->middleware('auth')
+    ->name('invitations.accept');
+
 require __DIR__.'/auth.php';

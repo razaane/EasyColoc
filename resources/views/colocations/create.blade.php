@@ -183,7 +183,7 @@
 
                     <!-- Action Buttons -->
                     <div class="flex items-center justify-end gap-4 pt-4 border-t border-purple-100">
-                        <a href="{{ route('dashboard') }}" 
+                        <a href="#" 
                            class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all">
                             Annuler
                         </a>
