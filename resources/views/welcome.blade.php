@@ -49,7 +49,7 @@
                         Gérez vos <span class="bg-gradient-to-r from-[#6d28d9] to-[#a21caf] bg-clip-text text-transparent">dépenses</span><br>en toute simplicité
                     </h2>
                     <p class="text-lg text-gray-600 max-w-lg leading-relaxed">
-                        Suivi instantané, remboursements automatiques et équilibre préservé. EasyColoc transforme la vie en communauté en un jeu d’enfant. 
+                        Suivi instantané,remboursements automatiques et équilibre préservé. EasyColoc transforme la vie en communauté en un jeu d’enfant. 
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
                         <a href="{{ route('register') }}" class="px-8 py-4 bg-[#7c3aed] hover:bg-[#5b21b6] text-white font-bold rounded-2xl text-lg shadow-xl shadow-purple-300/50 transition-all hover:shadow-purple-400/60 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">

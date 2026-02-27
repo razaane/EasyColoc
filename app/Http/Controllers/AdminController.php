@@ -8,7 +8,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class ColocationController extends Controller
+
+class AdminController extends Controller
 {
-   
+    public function dashboard(){
+        return view('admin.dashboard');
+    }
 }

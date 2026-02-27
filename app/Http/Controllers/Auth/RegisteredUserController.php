@@ -28,24 +28,35 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+{
+    $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        'avatar_url' => ['nullable', 'url'],
+    ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            // 'role'=>$request->role
-        ]);
+    $role = User::exists() ? 'member' : 'admin';
 
-        event(new Registered($user));
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'role' => $role,
+        'avatar_url' => $request->avatar_url, 
+        'reputation' => 0,
+    ]);
 
-        Auth::login($user);
+    event(new Registered($user));
+    Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+    // 4. Redirection selon le rôle
+    if ($user->role === 'admin') {
+        return redirect()->route('admin.dashboard');
     }
+
+    return redirect()->route('member.dashboard');
 }
+}
+
+

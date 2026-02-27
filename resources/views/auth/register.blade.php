@@ -117,19 +117,19 @@
 
                     <!-- Profile image (file input, styled nicely) -->
                     <div>
-                        <label for="image" class="block text-sm font-medium text-gray-700 mb-1">
-                            Photo de profil <span class="text-gray-400 font-normal">(optionnel)</span>
+                        <label for="avatar_url" class="block text-sm font-medium text-gray-700 mb-1">
+                            URL de la photo de profil <span class="text-gray-400 font-normal">(optionnel)</span>
                         </label>
                         <div class="relative">
-                            <input id="image" 
-                                type="file" 
-                                name="image" 
-                                accept="image/*"
-                                class="block w-full text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-[#ede9fe] file:text-[#5b21b6] hover:file:bg-[#ddd6fe] transition file:cursor-pointer cursor-pointer border-2 border-purple-100 rounded-xl py-1.5 px-3 bg-[#faf9ff] focus:outline-none focus:border-[#8b5cf6]" />
+                            <input id="avatar_url" 
+                                type="url" 
+                                 name="avatar_url" 
+                                value="{{ old('avatar_url') }}"
+                                placeholder="https://exemple.com/image.jpg"
+                                class="block w-full text-sm text-gray-600 border-2 border-purple-100 rounded-xl py-2.5 px-4 bg-[#faf9ff] focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition placeholder:text-gray-400" />
                         </div>
-                        <x-input-error :messages="$errors->get('image')" class="mt-2 text-sm text-red-500" />
+                        <x-input-error :messages="$errors->get('avatar_url')" class="mt-2 text-sm text-red-500" />
                     </div>
-
                     <!-- Submit button (dark purple, full width, same as login) -->
                     <div class="pt-3">
                         <x-primary-button class="w-full py-3.5 bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-bold rounded-xl shadow-lg shadow-purple-300/40 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 text-base">
