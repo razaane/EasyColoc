@@ -17,9 +17,14 @@ class Colocation extends Model
     }
 
     public function users(){
-        return $this->belongToMany(Colocation::class, 'user_id')
+        return $this->belongsToMany(Colocation::class, 'user_id')
                     ->withPivot(['role','joined_at','left_at'])
-                    ->withTimestamp();
+                    ->withTimestamps();
+    }
+
+    public function getInviteLinkAttribute() 
+    { 
+        return route('colocations.join', ['token' => $this->invite_token]); 
     }
 
 }

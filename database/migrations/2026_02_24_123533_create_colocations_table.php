@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('status')->default('active');
             $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
+            $table->string('invitation_token')->unique()->nullable();
             $table->timestamps();
         });
     }

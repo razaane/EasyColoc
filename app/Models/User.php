@@ -22,6 +22,13 @@ class User extends Authenticatable
                     ->withTimestamps();
     }
 
+    public function activeColocation()
+{
+    return $this->belongsToMany(Colocation::class)
+        ->wherePivotNull('left_at')
+        ->withPivot('role')
+        ->first();
+}
     /**
      * The attributes that are mass assignable.
      *

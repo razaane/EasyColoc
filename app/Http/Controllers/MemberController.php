@@ -12,6 +12,12 @@ class MemberController extends Controller
 {
     
     public function dashboard(){
-        return view('member.dashboard');
+        $user = Auth::user();
+
+$colocation = $user->colocations()
+    ->wherePivotNull('left_at')
+    ->first();
+
+return view('member.dashboard', compact('colocation'));
     }
 }
